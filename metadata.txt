@@ -1,0 +1,47 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Monitask
+qgisMinimumVersion=3.28
+description=a SAM based geographic information extraction tool just by interactive click on  remote sensing image, as well as an efficient geospatial labeling tool. While extracting geometries for geographic entities much more quickly, you can construct and optimize a land-cover classification system according to the nature characteristics of earth photo.
+version=0.9.1
+author=zhouxu
+email=zhox@163.com
+
+about=1).Lightly click the mouse to automatically recognize the range of features. 2). Multiple methods support flexible adjustment of automatic recognition results. 3). Automatically create geometries and achieve post-processing such as simplification, smoothing, and orthogonizing that are suitable for the labeled class. 4). Automatically edge with adjacent polygons. 5). efficient labeling operation. 6).  Automatic expansion of large parcels, collecting feature parcels like playing games. 7).Automatically adapt to changes in image display scale, and can flexibly respond to both large and small features. 8). Flexible labeling system establishment and maintenance operations.
+
+tracker=https://gitee.com/grainseed/monitask/issues
+repository=https://gitee.com/grainseed/monitask
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=python, SAM, segment
+
+homepage=https://gitee.com/grainseed/monitask
+#category=Plugins
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+plugin_dependencies=numpy,opencv-python,sqlite3,typing_extensions,pillow,timm,itertools,pyyaml,yacs,scikit_learn,torch,torchvision
+
+Category of the plugin: Raster, Vector, Database or Web
+category= Vector
+
+# If the plugin can run on QGIS Server.
+server=False
+

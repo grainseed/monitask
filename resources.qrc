@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/plugins/monitask" >
+        <file alias="monitask.svg">resources/monitask.svg</file>
+        <file alias="icon.png">resources/icon.png</file>
+        <file alias="doing.svg">resources/doing.svg</file>
+        <file alias="done.svg">resources/done.svg</file>
+        <file alias="get_task.svg">resources/get_task.svg</file>
+        <file alias="settings.svg">resources/settings.svg</file>
+        <file alias="submit_task.svg">resources/submit_task.svg</file>
+        <file alias="todo.svg">resources/todo.svg</file>
+        <file alias="label.svg">resources/label.svg</file>
+        <file alias="segment.svg">resources/segment.svg</file>
+        <file alias="undo.svg">resources/undo.svg</file>
+        <file alias="finished.svg">resources/finished.svg</file>
+        <file alias="cancel.svg">resources/cancel.svg</file>
+        <file alias="expand.svg">resources/expand.svg</file> 
+        <file alias="shrink.svg">resources/shrink.svg</file>
+        <file alias="navi.svg">resources/navi.svg</file>
+        <file alias="mining.svg">resources/mining.svg</file>
+        <file alias="label_check.svg">resources/label_check.svg</file>
+        <file alias="change_detect.svg">resources/change_detect.svg</file>
+    </qresource>
+</RCC>
