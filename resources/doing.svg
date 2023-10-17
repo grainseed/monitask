@@ -1,0 +1,27 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="1.001067" y1="0.003367" x2="0.5" x1="0.5" id="3nqy5kGZO56mC60HvTvRja">
+   <stop stop-color="#21ad64" offset="0"/>
+   <stop stop-color="#088242" offset="1"/>
+  </linearGradient>
+  <linearGradient y2="1.001067" y1="0.003367" x2="0.5" x1="0.5" id="3nqy5kGZO56mC60HvTvRjb">
+   <stop stop-color="#9dffce" offset="0"/>
+   <stop stop-color="#50d18d" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="879" width="34" y="-1" x="-1"/>
+ </g>
+ <g transform="translate(0 0) scale(0.72 0.75)">
+  <title>Layer 1</title>
+  <path id="svg_1" d="m40,42l-26,0c-1.1,0 -2,-0.9 -2,-2l0,-26c0,-1.1 0.9,-2 2,-2l26,0c1.1,0 2,0.9 2,2l0,26c0,1.1 -0.9,2 -2,2z" fill="url(#3nqy5kGZO56mC60HvTvRja)"/>
+  <path id="svg_2" opacity="0.05" d="m38,12l-26,0l0,26l22.319,0c2.033,0 3.681,-1.648 3.681,-3.681l0,-22.319z"/>
+  <path id="svg_3" opacity="0.07" d="m37,12l-25,0l0,25l22.161,0c1.568,0 2.839,-1.271 2.839,-2.839l0,-22.161z"/>
+  <path id="svg_4" d="m34,36l-26,0c-1.1,0 -2,-0.9 -2,-2l0,-26c0,-1.1 0.9,-2 2,-2l26,0c1.1,0 2,0.9 2,2l0,26c0,1.1 -0.9,2 -2,2z" fill="url(#3nqy5kGZO56mC60HvTvRjb)"/>
+  <rect stroke="null" id="svg_8" height="1.666643" width="14.999798" y="13.750142" x="9.250201" stroke-opacity="null" stroke-width="4" fill="#666666"/>
+  <rect stroke="null" id="svg_10" height="1.666643" width="14.999798" y="20.916712" x="10.916846" stroke-opacity="null" stroke-width="4" fill="#666666"/>
+  <rect stroke="null" id="svg_11" height="1.666643" width="14.999798" y="28.083283" x="6.916899" stroke-opacity="null" stroke-width="4" fill="#666666"/>
+  <path stroke="null" id="svg_5" d="m31.372672,12.45583l-1.843728,-1.22211c-0.465179,-0.30804 -1.078132,-0.15978 -1.371243,0.3309l-0.726718,1.219829l3.52713,2.336271l0.727291,-1.219263c0.291998,-0.491264 0.152638,-1.138274 -0.312733,-1.445627l0,0zm-10.218228,10.86739l3.527322,2.336247l5.748951,-9.651571l-3.529001,-2.336857l-5.747272,9.65218l0.000001,0.000001zm-0.538798,2.968288l-0.077906,2.194396l1.8409,-1.026878l1.710719,-0.952574l-3.402921,-2.255277l-0.070792,2.040333l0,0l-0.000001,-0.000001z" stroke-opacity="null" stroke-width="null" fill="#ff7f00"/>
+ </g>
+</svg>

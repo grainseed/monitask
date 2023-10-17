@@ -1,0 +1,38 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <symbol id="svg_11" xml:space="preserve" viewBox="0 0 256 256" height="256" width="256" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+   <desc>Created with Fabric.js 1.7.22</desc>
+
+   <g transform="translate(128 128) scale(0.72 0.72)">
+    <g stroke=" none" transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;">
+     <path stroke=" none" stroke-linecap="round" transform=" matrix(1 0 0 1 0 0) " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(229,86,58); fill-rule: nonzero; opacity: 1;" d="m64.595,56.649l23.766,23.766c2.185,2.185 2.185,5.761 0,7.946s-5.761,2.185 -7.946,0l-23.766,-23.766c0.281,-4.223 2.962,-6.851 7.946,-7.946z"/>
+     <path stroke=" none" stroke-linecap="round" transform=" matrix(1 0 0 1 0 0) " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(58,80,102); fill-rule: nonzero; opacity: 1;" d="m64.595,56.649l-3.757,-3.757c9.303,-13.084 8.096,-31.346 -3.635,-43.077c-13.086,-13.087 -34.303,-13.086 -47.389,-0.001s-13.086,34.302 0,47.388c11.731,11.731 29.993,12.937 43.077,3.635l3.757,3.757l7.947,-7.945z"/>
+     <circle stroke=" none" transform="  matrix(1 0 0 1 0 0) " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(206,226,242); fill-rule: nonzero; opacity: 1;" r="24.604" cy="33.514" cx="33.514"/>
+     <path stroke=" none" stroke-linecap="round" transform=" matrix(1 0 0 1 0 0) " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" d="m21.97,46.927c-0.512,0 -1.024,-0.195 -1.414,-0.586c-7.065,-7.065 -7.065,-18.562 0,-25.626c0.78,-0.781 2.048,-0.781 2.828,0c0.781,0.781 0.781,2.047 0,2.828c-5.505,5.506 -5.505,14.464 0,19.97c0.781,0.781 0.781,2.047 0,2.829c-0.39,0.389 -0.903,0.585 -1.414,0.585z"/>
+     <path stroke=" none" stroke-linecap="round" transform=" matrix(1 0 0 1 0 0) " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" d="m48.26,41.711c-0.255,0 -0.515,-0.049 -0.766,-0.153c-1.02,-0.423 -1.504,-1.593 -1.081,-2.613c1.333,-3.214 1.436,-6.795 0.287,-10.083c-0.364,-1.043 0.186,-2.184 1.229,-2.548c1.04,-0.365 2.184,0.186 2.547,1.229c1.474,4.218 1.343,8.812 -0.367,12.935c-0.32,0.769 -1.065,1.233 -1.849,1.233z"/>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="34" width="34" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <desc transform="matrix(0.11111165417631597,0,0,0.11111165417631597,0,0) ">Created with Fabric.js 1.7.22</desc>
+
+  <g id="svg_10">
+   <g id="svg_4" transform="matrix(0.08000039418587744,0,0,0.08000039418587744,14.22229173456844,14.22229173456844) ">
+    <g id="svg_5" stroke=" none" transform="translate(-175.0500030517578,-175.0500030517578) scale(3.890000104904175) " style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;">
+     <circle id="svg_6" stroke=" none" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(74,156,255); fill-rule: nonzero; opacity: 1;" r="45" cy="50.7124" cx="50.7124"/>
+     <path id="svg_7" stroke=" none" stroke-linecap="round" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(153,219,255); fill-rule: nonzero; opacity: 1;" d="m50.7124,95.7124c-10.667,0 -19.023,-19.767 -19.023,-45s8.356,-45 19.023,-45c10.667,0 19.023,19.767 19.023,45s-8.356,45 -19.023,45zm0,-88c-9.228,0 -17.023,19.691 -17.023,43s7.795,43 17.023,43s17.023,-19.691 17.023,-43s-7.795,-43 -17.023,-43z"/>
+     <path id="svg_8" stroke=" none" stroke-linecap="round" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(153,219,255); fill-rule: nonzero; opacity: 1;" d="m93.0294,65.0534l-84.632,0c-0.109,0 -0.209,0.03 -0.307,0.062c0.221,0.653 0.456,1.299 0.707,1.938l83.831,0c0.25,-0.639 0.485,-1.285 0.707,-1.939c-0.098,-0.031 -0.197,-0.061 -0.306,-0.061z"/>
+     <path id="svg_9" stroke=" none" stroke-linecap="round" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(153,219,255); fill-rule: nonzero; opacity: 1;" d="m8.3984,36.3714l84.629,0c0.109,0 0.209,-0.03 0.308,-0.062c-0.221,-0.653 -0.456,-1.299 -0.707,-1.938l-83.832,0c-0.25,0.639 -0.485,1.285 -0.706,1.938c0.098,0.032 0.198,0.062 0.308,0.062z"/>
+    </g>
+   </g>
+  </g>
+  <use x="-23.263602" y="-53.156685" transform="matrix(0.06486392581789557,0,0,0.06421654250990441,13.158508706302278,15.405052187052984) " xlink:href="#svg_11" id="svg_12"/>
+ </g>
+</svg>
