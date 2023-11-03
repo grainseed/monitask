@@ -7,4 +7,4 @@ If you want to try it without difficult installation, please follow these two li
 2. Baidu Drive: [QGIS3.30.2-simplified_Monitask0.91.7z](https://pan.baidu.com/s/177Y0KY0rqxATunR1CcFRmw?pwd=yiqc)
    ![demo](https://github.com/grainseed/monitask/assets/12957225/ce241cf3-f096-4ff2-b61d-c2bf3ec1121d)
 
-For detailed infomation including useage, please goto the [wiki page](https://github.com/grainseed/monitask/wiki)
+For detailed infomation including usage, please goto the [wiki page](https://github.com/grainseed/monitask/wiki)
