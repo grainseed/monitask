@@ -170,6 +170,7 @@ class SegMapTool(QgsMapToolEmitPoint):
     self.debug_layer_line=None
     self.debug_layer_polygon=None
     self.extending_labelid=-1
+    self.lastUsed_labelid = -1
     self.CD_InProcessing=False
 
     self.setCursor(Qt.CrossCursor)
@@ -314,6 +315,16 @@ class SegMapTool(QgsMapToolEmitPoint):
           if layer.name() == title:
               return layer
       return None
+
+  def resetWorkingExtent(self):
+      if not self.seg_enabled: return
+      self.working_extent_layer=self.getLayerByTile("working_extent")
+      if self.working_extent_layer is not None:
+          QgsProject.instance().removeMapLayer(self.working_extent_layer.id())
+          self.working_extent_layer = None
+      if self.workingExtent is not None:
+          self.segany.reset_image()
+          self.workingExtent=None
 
   def setWorkingExtent(self, imgcrs_point):
       '''
@@ -596,8 +607,9 @@ class SegMapTool(QgsMapToolEmitPoint):
               labelFieldName = field[0]
       return labelFieldName
 
-  def finish(self):
+  def finish(self,labelAsLast=False):
       '''
+      labelAsLast: true:表示使用最后一次用过的label作为本次提取图斑的label
       将生成的mask矢量化，放入内存临时图层，拷贝到剪切板，激活目标图层编辑状态和snapping设置，粘贴到目标图层中
       基本思路：用SAM生成Mask， 矢量化后保存在临时图层，然后copy到剪切板，再paste到目标图层中。paste之前，设置目标图层的相关snapping设置。
       注意avoid overlap失效的情况，有人反映当目标图层中如果存在无效geometry，可能会导致avoid overlap失效：https://github.com/qgis/QGIS/issues/48361
@@ -642,6 +654,8 @@ class SegMapTool(QgsMapToolEmitPoint):
       #print_log(self.extending_labelid)
       if self.extending_labelid>=0:
           labelObj=self.monitask.lb.getLabelItemById(self.extending_labelid)
+      elif labelAsLast and self.lastUsed_labelid>=0:
+          labelObj = self.monitask.lb.getLabelItemById(self.lastUsed_labelid)
       else:
           labelObj=self.detectLabel()
       self.extending_labelid = -1
@@ -851,6 +865,7 @@ class SegMapTool(QgsMapToolEmitPoint):
           self.extend_segment(labelObj.id)
           self.monitask.wl.output_layer.removeSelection()
           self.monitask.wl.output_layer.featureDeleted.connect(self.feature_deleted)
+          self.lastUsed_labelid=labelObj.id
           #print_log("--------------------refined the result --------------------- ")
       else:
           QMessageBox.about(None, 'Notice', "未设定存放采集结果的图层，请选择并正确设置Snapping")
