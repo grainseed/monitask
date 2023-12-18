@@ -22,7 +22,7 @@
 """
 from qgis.PyQt.QtCore import  QTranslator, QCoreApplication, Qt, QObject
 from qgis.PyQt.QtGui import QIcon,QFont,QColor
-from qgis.PyQt.QtWidgets import QAction,QMenu,QMessageBox, QWidget,QHBoxLayout,QWidgetAction,QActionGroup,QSpinBox,QComboBox
+from qgis.PyQt.QtWidgets import QAction,QMenu,QMessageBox, QWidget,QHBoxLayout,QWidgetAction,QActionGroup,QSpinBox,QComboBox,QToolButton
 from qgis.core import (Qgis,QgsIdentifyContext,QgsProject,QgsSnappingConfig, QgsLayerTreeGroup,
                        QgsMapThemeCollection, QgsMessageLog,QgsFeatureRequest,QgsSymbol,QgsSimpleFillSymbolLayer,
                        QgsSymbolLayer,QgsProperty, QgsSingleSymbolRenderer,QgsTextFormat,QgsPalLayerSettings,
@@ -233,10 +233,41 @@ class Monitask:
         # self.extending_mode_combo.setCurrentIndex(0)
         # self.monitask_toolbar.addWidget(self.extending_mode_combo)
 
-        self.segfinish_action=self.create_action(self.monitask_toolbar,':/plugins/monitask/finished.svg',
-                                              "segfinishAction","Finish Segment","segment finished","segment finished",self.seg_finished,shortcut="E")
-        self.segcancel_action=self.create_action(self.monitask_toolbar,':/plugins/monitask/cancel.svg',
+        # self.segfinish_action=self.create_action(self.monitask_toolbar,':/plugins/monitask/finished.svg',
+        #                                       "segfinishAction","Finish Segment","segment finished","segment finished",self.seg_finished,shortcut="E")
+        self.seg_menu = QMenu(self.tr(u'&Segment'))
+        self.segfinish_action=self.create_action(self.seg_menu,':/plugins/monitask/finished.svg',
+                                              "segfinishAction","Segment and detect label","segment finished","segment finished",self.seg_finished,shortcut="E")
+        self.segfinish_action2=self.create_action(self.seg_menu,':/plugins/monitask/finished.svg',
+                                              "segfinishAction2","Segment and label as the last","segment finished","segment finished",self.seg_finished_labelAsLast,shortcut="W")
+        self.seg_button = QToolButton()
+        self.seg_button.setMenu(self.seg_menu)
+        self.seg_button.setPopupMode(QToolButton.InstantPopup)
+        self.seg_button.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+        #self.seg_button.setText("下拉选择");
+        icon = QIcon()
+        icon.addPixmap(QtGui.QPixmap(':/plugins/monitask/finished.svg'), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.seg_button.setIcon(icon)
+        self.monitask_toolbar.addWidget(self.seg_button)
+
+        #cancel the mask and extent box
+        # self.segcancel_action=self.create_action(self.monitask_toolbar,':/plugins/monitask/cancel.svg',
+        #                                       "segcancelAction", "Cancel Segment", "segment canceled", "segment canceled", self.seg_canceled, shortcut = "ESC")
+        self.segcancel_menu = QMenu(self.tr(u'Cancel Segment'))
+        self.segcancel_action=self.create_action(self.segcancel_menu,':/plugins/monitask/cancel.svg',
                                               "segcancelAction","Cancel Segment","segment canceled","segment canceled",self.seg_canceled,shortcut="ESC")
+        self.segcancel_action=self.create_action(self.segcancel_menu,':/plugins/monitask/cancel.svg',
+                                              "segcancelAction2","Cancel Segment and Current Extent","segment canceled","segment canceled",self.seg_ext_canceled,shortcut="SHIFT+ESC")
+        self.segcancel_button = QToolButton()
+        self.segcancel_button.setMenu(self.segcancel_menu)
+        self.segcancel_button.setPopupMode(QToolButton.InstantPopup)
+        self.segcancel_button.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
+        #self.seg_button.setText("Cancel");
+        icon = QIcon()
+        icon.addPixmap(QtGui.QPixmap(':/plugins/monitask/cancel.svg'), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.segcancel_button.setIcon(icon)
+        self.monitask_toolbar.addWidget(self.segcancel_button)
+
         self.segundo_action=self.create_action(self.monitask_toolbar,':/plugins/monitask/undo.svg',
                                               "segundoAction","Undo Segment","segment backspace","segment backspace",self.seg_undo,shortcut="C")
         self.dilatemask_action=self.create_action(self.monitask_toolbar,':/plugins/monitask/expand.svg',
@@ -318,7 +349,7 @@ class Monitask:
             configPath=os.path.dirname(__file__) + "\\monitask_config.ini"
             self.configInitiated=os.path.exists(configPath)
             if not self.configInitiated:
-                QMessageBox.warning(None, 'Warning','You must set basic information for Monitask to work , including username, working directory, working result output file and label system database etc.\n必需设置用户名、工作目录、工作成果保存文件相关信息以及标签库等基本信息，并确认保存。')
+                QMessageBox.warning(None, 'Warning','You must set basic information for Monitask to work , including username, working directory, working result output file and its structure, and label system database etc.\n必需设置用户名、工作目录、工作成果保存文件相关信息以及标签库等基本信息，并确认保存。')
 
     def identify(self,overwrite=True):
         try:
@@ -624,8 +655,19 @@ class Monitask:
             print_log("Exception occured in monitask.seg_finished:",e)
         finally:
             if self.seg_status:
-                self.segtool.finish()
+                self.segtool.finish(labelAsLast=False)
             self.iface.mapCanvas().layersChanged.connect(self.canvasLayersChanged)
+
+    def seg_finished_labelAsLast(self):
+        try:
+            self.iface.mapCanvas().layersChanged.disconnect(self.canvasLayersChanged)
+        except Exception as e:
+            print_log("Exception occured in monitask.seg_finished:",e)
+        finally:
+            if self.seg_status:
+                self.segtool.finish(labelAsLast=True)
+            self.iface.mapCanvas().layersChanged.connect(self.canvasLayersChanged)
+
 
     def seg_canceled(self):
         try:
@@ -635,6 +677,17 @@ class Monitask:
         finally:
             if self.seg_status:
                 self.segtool.cancel()
+            self.iface.mapCanvas().layersChanged.connect(self.canvasLayersChanged)
+
+    def seg_ext_canceled(self):
+        try:
+            self.iface.mapCanvas().layersChanged.disconnect(self.canvasLayersChanged)
+        except Exception as e:
+            print_log("Exception occured in monitask.seg_finished:",e)
+        finally:
+            if self.seg_status:
+                self.segtool.cancel()
+                self.segtool.resetWorkingExtent()
             self.iface.mapCanvas().layersChanged.connect(self.canvasLayersChanged)
 
     def seg_undo(self):
@@ -768,7 +821,7 @@ class Monitask:
 
         #load labels
         self.labelWidget.labelBaseFile=self.settingsObj.General_labelDBFile
-        print(self.settingsObj.General_labelDBFile)
+        #print(self.settingsObj.General_labelDBFile)
 
         self.labelWidget.canvasLayersChanged()
         if type(self.settingsObj.Advanced_oneshot_threshold)==int:
@@ -787,26 +840,6 @@ class Monitask:
             self.settingsDlg.tabWidget.setCurrentIndex(1)
             self.settingsDlg.focusOnLabelbase()
             self.showSettingsDlg()
-
-
-    def isOKForOutputLayer(self,qgslayer):
-        '''
-        TODO: to be finished
-        检查layer中的各个字段是否符合设置中对输出图层的字段要求
-        '''
-        isOk=0
-        #如果未设置字段要求，提示设置，并显示设置窗口，将焦点切换到设置部分
-        field_settings=self.settingsObj.General_outLayerFields
-        if field_settings.strip():
-            field_settings=eval(field_settings)
-            for field in qgslayer.fields():
-                for required_filed in field_settings:
-                    if required_filed[5]=="Labeling" and field.name()==required_filed[0] and field.typeName()==required_filed[1]:
-                        isOk += 1
-        else:
-            self.showSettingsDlg()
-            self.settingsDlg.fieldNameEdit.setFocus()
-        return isOk
 
     def showTaskDialog(self):
         self.task_widget = TaskDialog()
