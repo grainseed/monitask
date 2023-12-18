@@ -434,6 +434,7 @@ class SegMapTool(QgsMapToolEmitPoint):
       return iou
 
   def cutoutImageFromRasterLayer(self,rasterlayer,geo_extent,width_px,height_px):
+      data=[]
       if rasterlayer:
           data_provider=rasterlayer.dataProvider()
           if str(rasterlayer.rasterType())=="RasterLayerType.SingleBandColorData":
